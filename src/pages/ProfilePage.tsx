@@ -17,7 +17,7 @@ const ProfilePage: React.FC = () => {
         dateJoined: '2023-01-15',
         farms: [
             {
-                name: 'Estancia "Prosperidad"',
+                name: 'Finca #42',
                 terrainSize: '42 hectáreas (104 acres)',
                 dateBuilt: '2001-05-10',
                 numWorkers: 15,
@@ -43,21 +43,21 @@ const ProfilePage: React.FC = () => {
                 <nav>
                     <button onClick={() => navigate('/profile')}>Perfil</button>
                     <button onClick={() => navigate('/inventory')}>Inventarios</button>
-                    <button onClick={() => { /* Navigate to Transactions */ }}>Transacciones</button>
+                    <button onClick={() => navigate('/transactions')}>Transacciones</button>
                 </nav>
             </header>
 
             <div className="profile-header">
-                <img src={user.profilePicture} alt="Profile" className="profile-picture"/>
+            <img src={user.profilePicture} alt="Profile" className="profile-picture"/>
                 <h1>{user.name}</h1>
             </div>
             <div className="profile-details">
                 <p><strong>Fecha de Registro:</strong> {new Date(user.dateJoined).toLocaleDateString()}</p>
-                <h2>Propiedades propias:</h2>
+                <h1>Detalles de Propiedad:</h1>
                 <ul>
                     {user.farms.map((farm, index) => (
                         <li key={index}>
-                            <h1>{farm.name}</h1>
+                            <h2>{farm.name}</h2>
                             <img src={farm.mainPicture} alt="farm" className="farm-main-image"/>
                             <p><strong>Tamaño del terreno:</strong> {farm.terrainSize}</p>
                             <p><strong>Fecha de

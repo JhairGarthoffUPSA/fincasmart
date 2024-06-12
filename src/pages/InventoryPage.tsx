@@ -119,9 +119,7 @@ const InventoryPage: React.FC = () => {
                 <nav>
                     <button onClick={() => navigate('/profile')}>Perfil</button>
                     <button onClick={() => navigate('/inventory')}>Inventarios</button>
-                    <button onClick={() => { /* Navigate to Transactions */
-                    }}>Transacciones
-                    </button>
+                    <button onClick={() => navigate('/transactions')}>Transacciones</button>
                 </nav>
             </header>
 

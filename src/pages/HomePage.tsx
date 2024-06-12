@@ -1,9 +1,11 @@
 // HomePage.tsx
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import { Chart, registerables } from 'chart.js'; // Import Chart.js and its registerables
 import './HomePage.css';
 import farm from '../img/farm.jpg';
+// @ts-ignore
+import video42 from '../img/video42.mp4';
 
 
 Chart.register(...registerables); // Register Chart.js components
@@ -81,25 +83,28 @@ const HomePage: React.FC = () => {
                 <nav>
                     <button onClick={() => navigate('/profile')}>Perfil</button>
                     <button onClick={() => navigate('/inventory')}>Inventarios</button>
-                    <button onClick={() => { /* Navigate to Transactions */
-                    }}>Transacciones
-                    </button>
+                    <button onClick={() => navigate('/transactions')}>Transacciones</button>
                 </nav>
             </header>
 
+            <div className="intro-page">
+                <video className="video-background" autoPlay loop muted>
+                    <source src={video42} type="video/mp4"/>
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
             <main className="homepage-main">
-
-
                 <section className="farm-info">
-                    <h1>Estancia "Prosperidad"</h1>
-                    <p>Propietario: Jhair Garthoff</p>
+                    <h1>Vista General</h1>
                     <img src={farm} alt="farm" className="farm-image"/>
                 </section>
 
                 <section className="inventory">
                     <h2>Inventario en Almacén</h2>
                     <div className="charts-container">
-                        <canvas id="inventory-chart"></canvas> {/* Canvas element for the chart */}
+                        <canvas id="inventory-chart"></canvas>
+                        {/* Canvas element for the chart */}
                     </div>
 
                 </section>

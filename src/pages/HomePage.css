@@ -10,7 +10,11 @@
     align-content: center;
     margin-top: 10px;
     margin-left: 100px;
+}
 
+.homepage-main h1, h3 {
+    text-align: center;
+    margin-right: 70px;
 }
 
 .homepage-header {
