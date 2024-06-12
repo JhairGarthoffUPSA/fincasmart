@@ -1,8 +1,16 @@
 .homepage {
-    font-family: Arial, sans-serif;
-    padding: 20px;
-    max-width: 800px;
+    font-family: Roboto, sans-serif;
+    padding: 0px;
     margin: 0 auto;
+    width: 100%;
+    align-content: center;
+}
+
+.homepage-main {
+    align-content: center;
+    margin-top: 10px;
+    margin-left: 100px;
+
 }
 
 .homepage-header {
@@ -12,6 +20,7 @@
     background-color: #4CAF50;
     padding: 10px 20px;
     color: white;
+    width: 97%;
 }
 
 .homepage-header h1 {
@@ -36,22 +45,58 @@
     background-color: #ddd;
 }
 
-.main {
-    margin-top: 20px;
-}
 
 .farm-info, .inventory, .transactions {
     margin-bottom: 20px;
+    align-content: center;
 }
 
-.inventory ul, .transactions ul {
+.inventory {
+    position: relative;
+    left: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 900px;
+}
+
+.inventory-chart {
+    width: 100%;
+    max-width: 600px;
+    height: 500px;
+}
+
+.transactions ul {
+    position: relative;
+    left: 100px;
     list-style: none;
     padding: 0;
+    max-width: 900px;
 }
 
-.inventory li, .transactions li {
+.transactions li {
     background-color: #f9f9f9;
     margin: 5px 0;
     padding: 10px;
     border-radius: 5px;
 }
+
+/* Add this to your CSS */
+.charts-container {
+    left: 200px;
+    display: flex;
+    justify-content: space-between; /* Adjust as needed */
+
+}
+
+.chart {
+    left: 600px;
+    width: 50%; /* Adjust as needed */
+}
+
+.canvas {
+    width: 100%;
+    left: 200px;
+}
+
+
