@@ -19,7 +19,7 @@ const HomePage: React.FC = () => {
         { product: 'Zanahorias', quantity: 20 },
     ]);
     const transactions = [
-        { date: '2024-06-13', type: 'Compra', item: 'Bolsa Semillas Cebollas', units: 50, amount: '1300' },
+        { date: '2024-06-13', type: 'Compra', item: 'Bolsa Semillas Tomate', units: 50, amount: '1300' },
         { date: '2024-06-09', type: 'Venta', item: 'Tomates', units: 200, amount: '2800' },
         { date: '2024-06-08', type: 'Compra', item: 'Maquinaria - Regadora', units: 1, amount: '15900' },
     ];
@@ -88,6 +88,8 @@ const HomePage: React.FC = () => {
             </header>
 
             <main className="homepage-main">
+
+
                 <section className="farm-info">
                     <h1>Estancia "Prosperidad"</h1>
                     <p>Propietario: Jhair Garthoff</p>

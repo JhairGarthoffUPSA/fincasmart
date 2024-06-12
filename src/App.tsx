@@ -4,6 +4,7 @@ import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
 import ProfilePage from './pages/ProfilePage';
 import InventoryPage from "./pages/InventoryPage";
+import IntroPage from "./pages/IntroPage";
 
 const App: React.FC = () => {
   return (
@@ -13,6 +14,7 @@ const App: React.FC = () => {
               <Route path="/home" element={<HomePage />} />
               <Route path="/profile" element={<ProfilePage />} />
               <Route path="/inventory" element={<InventoryPage />} />
+              <Route path="/" element={<IntroPage />} />
           </Routes>
       </Router>
   );
