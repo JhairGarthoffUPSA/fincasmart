@@ -79,7 +79,7 @@ const HomePage: React.FC = () => {
             <main className="homepage-main">
                 <section className="farm-info">
                     <h1>Estancia "Prosperidad"</h1>
-                    <p>Propietario: Juan Perez</p>
+                    <p>Propietario: Jhair Garthoff</p>
                 </section>
 
                 <section className="inventory">
