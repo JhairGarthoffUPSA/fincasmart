@@ -1,3 +1,4 @@
+// InventoryPage.tsx
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Chart, registerables } from 'chart.js'; // Import Chart.js and its registerables
@@ -7,8 +8,6 @@ Chart.register(...registerables); // Register Chart.js components
 
 type ChartInstance = Chart<'doughnut', number[], string>; // Define custom type for chart instance
 
-
-
 const InventoryPage: React.FC = () => {
     const [inventory] = useState([
         { product: 'Tomates', quantity: 105 },
@@ -16,7 +15,6 @@ const InventoryPage: React.FC = () => {
         { product: 'Lechugas', quantity: 310 },
         { product: 'Zanahorias', quantity: 20 },
     ]);
-    const navigate = useNavigate();
 
     const productionVolumes = [
         { product: 'Tomates', volumes: [363, 255, 301, 280, 242, 579] },
@@ -24,6 +22,7 @@ const InventoryPage: React.FC = () => {
         { product: 'Lechugas', volumes: [402, 411, 419, 398, 390, 392] },
         { product: 'Zanahorias', volumes: [102, 147, 151, 195, 102, 58] },
     ];
+
     const createProductionVolumeCharts = (productionVolumes: { product: string; volumes: number[] }[]) => {
         productionVolumes.forEach(({ product, volumes }, index) => {
             const canvasId = `production-volume-chart-${index}`;
@@ -58,7 +57,6 @@ const InventoryPage: React.FC = () => {
         });
     };
 
-
     const getRandomColor = () => {
         const letters = '0123456789ABCDEF';
         let color = '#';
@@ -72,12 +70,15 @@ const InventoryPage: React.FC = () => {
         // Create and update charts
         const overallInventoryChart = createDoughnutChart('overall-inventory-chart', inventory.map(item => item.quantity), inventory.map(item => item.product));
         const seedsInventoryChart = createDoughnutChart('seeds-inventory-chart', [50, 30, 20], ['Semillas de Tomate', 'Semillas de Maíz', 'Semillas de Lechuga']);
+        const cattleInventoryChart = createDoughnutChart('cattle-inventory-chart', [15, 10, 22], ['Vacas', 'Gallinas', 'Cerdos']);
+        const cattleProductsInventoryChart = createDoughnutChart('cattle-products-inventory-chart', [200, 150, 41], ['Leche', 'Huevos', 'Carne de Cerdo']);
 
         return () => {
             overallInventoryChart.destroy();
             seedsInventoryChart.destroy();
+            cattleInventoryChart.destroy();
+            cattleProductsInventoryChart.destroy();
             createProductionVolumeCharts(productionVolumes);
-
         };
     }, []);
 
@@ -105,6 +106,28 @@ const InventoryPage: React.FC = () => {
         });
     };
 
+    const [newEntry, setNewEntry] = useState<{ type: string, name: string, amount: number }>({ type: '', name: '', amount: 0 });
+    const [showForm, setShowForm] = useState(false);
+    const navigate = useNavigate();
+
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLSelectElement>) => {
+        const { name, value } = e.target;
+        setNewEntry(prevState => ({
+            ...prevState,
+            [name]: value
+        }));
+    };
+
+    const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        console.log('New Entry:', newEntry);
+        // You can add your logic here to handle the form submission, like sending data to a backend API
+    };
+
+    const toggleForm = () => {
+        setShowForm(prevState => !prevState);
+    };
+
     return (
         <div className="inventarios-page">
             <header className="homepage-header">
@@ -124,7 +147,44 @@ const InventoryPage: React.FC = () => {
             </header>
 
             <div className="inventarios-content">
-                <h2>Inventarios</h2>
+                <h1>Inventarios</h1>
+
+                <h2>Registrar nueva entrada a Inventario</h2>
+
+                <div className="product-list">
+                    <div className="add-inventory-button-container">
+                        <button className="add-inventory-button" onClick={() => setShowForm(!showForm)}>
+                            {showForm ? 'Cerrar Formulario' : 'Agregar Nuevo Inventario'}
+                        </button>
+                    </div>
+                    {showForm && (
+
+                        <div className="form-container">
+                            <form onSubmit={handleFormSubmit}>
+
+                                <div className="form-group">
+                                    <label>Nombre del Producto:</label>
+                                    <input type="text" name="name" value={newEntry.name} onChange={handleInputChange}/>
+                                </div>
+                                <div className="form-group">
+                                    <label>Tipo:</label>
+                                    <select name="type" value={newEntry.type} onChange={handleInputChange}>
+                                        <option value="">Seleccionar Tipo</option>
+                                        <option value="crop">Cosecha</option>
+                                        <option value="cattle">Ganado</option>
+                                    </select>
+                                </div>
+                                <div className="form-group">
+                                    <label>Cantidad:</label>
+                                    <input type="number" name="amount" value={newEntry.amount}
+                                           onChange={handleInputChange}/>
+                                </div>
+                                <button type="submit">Agregar al Registro</button>
+
+                            </form>
+                        </div>)}
+                </div>
+
 
                 {/* Product List */}
                 <div className="product-list">
@@ -134,30 +194,42 @@ const InventoryPage: React.FC = () => {
                             <li key={index}>{item.product}</li>
                         ))}
                     </ul>
+                    <h2>Existencias en Almacén</h2>
+                    <div className="donut-graphs">
+                        <div className="overall-inventory-chart">
+                            <canvas id="overall-inventory-chart"></canvas>
+                        </div>
+                        <div className="seeds-inventory-chart">
+                            <canvas id="seeds-inventory-chart"></canvas>
+                        </div>
+                    </div>
+
 
                     <h3>Ganado Criado en Propiedad:</h3>
-                    <p>Esta propiedad no cría ganado.</p>
-
-                    <h2>Existencias en Almacén</h2>
-                </div>
-
-
-                <div className="donut-graphs">
-                    <div className="overall-inventory-chart">
-                        <canvas id="overall-inventory-chart"></canvas>
+                    <ul>
+                        <li>Vacas</li>
+                        <li>Gallinas</li>
+                        <li>Cerdos</li>
+                    </ul>
+                    <div className="donut-graphs">
+                        <div className="cattle-inventory-chart">
+                            <canvas id="cattle-inventory-chart"></canvas>
+                        </div>
+                        <div className="cattle-products-inventory-chart">
+                            <canvas id="cattle-products-inventory-chart"></canvas>
+                        </div>
                     </div>
-                    <div className="seeds-inventory-chart">
-                        <canvas id="seeds-inventory-chart"></canvas>
-                    </div>
+
                 </div>
 
 
                 {/* Line Graphs */}
                 <div className="production-volume-charts">
-                    <h2>Volúmenes de Producción</h2>
+                    <h1>Volúmenes de Producción</h1>
+                    <h1>Cosechas</h1>
                     {productionVolumes.map((product, index) => (
                         <div key={index} className="production-volume-chart">
-                            <h3>{product.product}</h3>
+                            <h2>{product.product}</h2>
                             <canvas id={`production-volume-chart-${index}`}></canvas>
                         </div>
                     ))}

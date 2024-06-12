@@ -5,10 +5,22 @@
     flex-direction: column;
 }
 
-.inventarios-page h2{
+.inventarios-page h1{
     text-align: center;
 }
 
+.inventarios-page h2{
+    text-align: center;
+}
+.inventarios-page h3{
+    text-align: left;
+    margin-left: 170px;
+}
+
+.inventarios-page p{
+    text-align: left;
+    margin-left: 170px;
+}
 
 .inventarios-content{
     position: relative;
@@ -50,5 +62,67 @@
 .line-graphs .production-volume-chart,
 .line-graphs .sales-volume-chart {
     width: 45%;
+}
+
+.form-container {
+    margin-top: 20px;
+    text-align: left;
+    margin-left: 250px;
+}
+
+.form-container h2 {
+    margin-bottom: 10px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group select {
+    width: 60%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 50px;
+}
+
+.add-inventory-button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px; /* Adjust margin as needed */
+}
+
+.add-inventory-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.add-inventory-button:hover {
+    background-color: #45a049;
+}
+
+button[type="submit"]:hover {
+    background-color: #45a049;
 }
 
