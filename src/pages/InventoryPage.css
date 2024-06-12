@@ -1,0 +1,54 @@
+.inventarios-page {
+    font-family: Roboto, sans-serif;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.inventarios-page h2{
+    text-align: center;
+}
+
+
+.inventarios-content{
+    position: relative;
+    left: 200px;
+    align-items: center;
+    max-width: 1000px;
+}
+
+
+.donut-graphs {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.donut-graphs .overall-inventory-chart,
+.donut-graphs .seeds-inventory-chart {
+    width: 45%;
+}
+
+.product-list ul {
+    position: relative;
+    left: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    max-width: 900px;
+}
+
+.product-list li {
+    margin-bottom: 5px;
+}
+
+.line-graphs {
+    display: flex;
+    justify-content: space-around;
+}
+
+.line-graphs .production-volume-chart,
+.line-graphs .sales-volume-chart {
+    width: 45%;
+}
+

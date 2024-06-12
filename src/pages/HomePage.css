@@ -21,11 +21,26 @@
     padding: 10px 20px;
     color: white;
     width: 97%;
+
 }
 
 .homepage-header h1 {
     margin: 0;
+    text-decoration: none !important; /* Remove underline */
+    color: white;
+    cursor: default; /* Change cursor to default */
 }
+
+.homepage-button {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 1.5rem; /* Adjust font size as needed */
+    font-weight: bold; /* Adjust font weight as needed */
+    padding: 0; /* Remove any padding */
+}
+
 
 .homepage-header nav {
     display: flex;
@@ -99,4 +114,12 @@
     left: 200px;
 }
 
+.farm-image {
+    width: 100%;
+    max-width: 800px; /* Adjust the maximum width as needed */
+    height: auto;
+    display: block;
+    margin-top: 20px; /* Add some margin for spacing */
+    margin-left: 200px;
+}
 

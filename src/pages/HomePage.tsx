@@ -1,7 +1,9 @@
 // HomePage.tsx
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Chart, registerables } from 'chart.js'; // Import Chart.js and its registerables
 import './HomePage.css';
+import farm from '../img/farm.jpg';
 
 
 Chart.register(...registerables); // Register Chart.js components
@@ -21,7 +23,7 @@ const HomePage: React.FC = () => {
         { date: '2024-06-09', type: 'Venta', item: 'Tomates', units: 200, amount: '2800' },
         { date: '2024-06-08', type: 'Compra', item: 'Maquinaria - Regadora', units: 1, amount: '15900' },
     ];
-
+    const navigate = useNavigate();
     useEffect(() => {
         let newChart: ChartInstance | null = null; // Initialize newChart variable
         const ctx = document.getElementById('inventory-chart') as HTMLCanvasElement;
@@ -68,11 +70,20 @@ const HomePage: React.FC = () => {
     return (
         <div className="homepage">
             <header className="homepage-header">
-                <h1>FincaSmart</h1>
+                <a href="/" className="homepage-title"
+                   style={{textDecoration: 'none', color: 'white', cursor: 'default'}}
+                   onClick={(e) => {
+                       e.preventDefault();
+                       navigate('/home');
+                   }}>
+                    <h1>FincaSmart</h1>
+                </a>
                 <nav>
-                    <button onClick={() => { /* Navigate to User Profile */ }}>Perfil</button>
-                    <button onClick={() => { /* Navigate to Inventory */ }}>Inventarios</button>
-                    <button onClick={() => { /* Navigate to Transactions */ }}>Transacciones</button>
+                    <button onClick={() => navigate('/profile')}>Perfil</button>
+                    <button onClick={() => navigate('/inventory')}>Inventarios</button>
+                    <button onClick={() => { /* Navigate to Transactions */
+                    }}>Transacciones
+                    </button>
                 </nav>
             </header>
 
@@ -80,10 +91,11 @@ const HomePage: React.FC = () => {
                 <section className="farm-info">
                     <h1>Estancia "Prosperidad"</h1>
                     <p>Propietario: Jhair Garthoff</p>
+                    <img src={farm} alt="farm" className="farm-image"/>
                 </section>
 
                 <section className="inventory">
-                    <h2>Inventario Actual</h2>
+                    <h2>Inventario en Almacén</h2>
                     <div className="charts-container">
                         <canvas id="inventory-chart"></canvas> {/* Canvas element for the chart */}
                     </div>
