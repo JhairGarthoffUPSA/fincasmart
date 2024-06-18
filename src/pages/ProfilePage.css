@@ -10,10 +10,21 @@
     text-align: center;
     width: 100%;
 }
+
 .profile-header {
     display: flex;
     align-items: center;
     margin-left: 50px;
+}
+
+.profile-header-content {
+    display: flex;
+    align-items: center;
+    margin: 20px;
+}
+
+.logout-button {
+    margin-left: 700px;
 
 }
 
@@ -72,4 +83,8 @@ header .homepage-button {
     max-width: 600px; /* Adjust the maximum width as needed */
     height: auto;
     margin-left: 364px;
+}
+
+.workers-table {
+    text-align: center;
 }

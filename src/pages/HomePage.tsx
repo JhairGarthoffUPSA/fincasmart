@@ -18,7 +18,7 @@ const HomePage: React.FC = () => {
         { product: 'Tomates', quantity: 105 },
         { product: 'Maíz', quantity: 180 },
         { product: 'Lechugas', quantity: 310 },
-        { product: 'Zanahorias', quantity: 20 },
+        { product: 'Zanahorias', quantity: 21 },
     ]);
     const transactions = [
         { date: '2024-06-13', type: 'Compra', item: 'Bolsa Semillas Tomate', units: 50, amount: '1300' },
@@ -84,6 +84,7 @@ const HomePage: React.FC = () => {
                     <button onClick={() => navigate('/profile')}>Perfil</button>
                     <button onClick={() => navigate('/inventory')}>Inventarios</button>
                     <button onClick={() => navigate('/transactions')}>Transacciones</button>
+                    <button onClick={() => navigate('/management')}>Gestión</button>
                 </nav>
             </header>
 
@@ -101,11 +102,13 @@ const HomePage: React.FC = () => {
                 </section>
 
                 <section className="inventory">
-                    <h2>Inventario en Almacén</h2>
+                    <h2>Vista Rápida</h2>
+                    <h2>Inventario: Cosechas</h2>
                     <div className="charts-container">
                         <canvas id="inventory-chart"></canvas>
                         {/* Canvas element for the chart */}
                     </div>
+
 
                 </section>
 

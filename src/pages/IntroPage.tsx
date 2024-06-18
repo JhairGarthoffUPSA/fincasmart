@@ -15,7 +15,7 @@ const IntroPage: React.FC = () => {
                 Your browser does not support the video tag.
             </video>
             <div className="content">
-                <p>Solución inteligente exlusivo para la Finca #42.</p>
+                <p>Solución inteligente exlusiva para la Finca #47.</p>
                 <Link to="/login" className="login-button">Login</Link>
             </div>
         </div>

@@ -1,0 +1,90 @@
+/* ManagementPage.css */
+
+.management-page {
+    font-family: Arial, sans-serif;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.management-header {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+.management-main {
+    margin-top: 20px;
+}
+
+.employee-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.employee-table th, .employee-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.employee-table th {
+    background-color: #f2f2f2;
+}
+
+.employee-table td button {
+    cursor: pointer;
+    padding: 6px 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
+
+.employee-table td button:hover {
+    background-color: #45a049;
+}
+
+.change-state-form {
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.change-state-form label {
+    margin-bottom: 10px;
+}
+
+.change-state-form select {
+    padding: 8px;
+    margin-bottom: 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.change-state-form button {
+    padding: 4px 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-right: 50px;
+}
+
+.change-state-form button:hover {
+    background-color: #45a049;
+}
+
+.task-descriptions {
+    margin-left: 40px;
+    line-height: 25px;
+}

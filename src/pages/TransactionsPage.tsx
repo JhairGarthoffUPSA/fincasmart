@@ -74,6 +74,7 @@ const TransactionsPage: React.FC = () => {
                     <button onClick={() => navigate('/profile')}>Perfil</button>
                     <button onClick={() => navigate('/inventory')}>Inventarios</button>
                     <button onClick={() => navigate('/transactions')}>Transacciones</button>
+                    <button onClick={() => navigate('/management')}>Gestión</button>
                 </nav>
             </header>
 

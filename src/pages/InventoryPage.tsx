@@ -143,6 +143,7 @@ const InventoryPage: React.FC = () => {
                     <button onClick={() => navigate('/profile')}>Perfil</button>
                     <button onClick={() => navigate('/inventory')}>Inventarios</button>
                     <button onClick={() => navigate('/transactions')}>Transacciones</button>
+                    <button onClick={() => navigate('/management')}>Gestión</button>
                 </nav>
             </header>
 
@@ -211,6 +212,7 @@ const InventoryPage: React.FC = () => {
                         <li>Gallinas</li>
                         <li>Cerdos</li>
                     </ul>
+                    <h2>Ganado en Crianza</h2>
                     <div className="donut-graphs">
                         <div className="cattle-inventory-chart">
                             <canvas id="cattle-inventory-chart"></canvas>
@@ -219,7 +221,6 @@ const InventoryPage: React.FC = () => {
                             <canvas id="cattle-products-inventory-chart"></canvas>
                         </div>
                     </div>
-
                 </div>
 
 
